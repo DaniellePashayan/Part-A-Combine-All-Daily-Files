@@ -31,7 +31,7 @@
     "location": "Share Drive",
     "daily_path": "M:/CPP-Data/CBO Westbury Managers/LEADERSHIP/Bot Folder/Part A/Clinical Denials/Daily Reports/",
     "consolidation_path": "M:/CPP-Data/CBO Westbury Managers/LEADERSHIP/Bot Folder/Part A/Clinical Denials/Daily Reports/Consolidated Files",
-    "sheet_name": "Detailed Report",
+    "sheet_name": "Accounts",
     "module": "clinical_denials"
   },
   "Insurance Verification": {
