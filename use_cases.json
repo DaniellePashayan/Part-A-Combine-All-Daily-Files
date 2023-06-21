@@ -1,55 +1,72 @@
-[
-  {
-    "name": "CEMS Claim Status",
+{
+  "CEMS Claim Status": {
+    "location": "SharePoint",
     "daily_path": "/Part A - Hospital/CEMS/Daily Reports/",
     "consolidation_path": "/Part A - Hospital/CEMS/Daily Reports/Consolidated Files/",
-    "sheet_name": "Detailed Report"
+    "sheet_name": "Detailed Report",
+    "module": "CEMS"
   },
-  {
-    "name": "CHHA Claim Status",
+  "CHHA Claim Status": {
+    "location": "SharePoint",
     "daily_path": "/Part A - Hospital/CHHA Claim Status/Daily Reports/",
     "consolidation_path": "/Part A - Hospital/CHHA Claim Status/Daily Reports/Consolidated Files/",
-    "sheet_name": "Detailed Report"
+    "sheet_name": "Detailed Report",
+    "module": "CHHA"
   },
-  {
-    "name": "Claim Status",
+  "Claim Status": {
+    "location": "Share Drive",
     "daily_path": "M:/CPP-Data/CBO Westbury Managers/LEADERSHIP/Bot Folder/Part A/Claim Status/Daily Reports/",
     "consolidation_path": "M:/CPP-Data/CBO Westbury Managers/LEADERSHIP/Bot Folder/Part A/Claim Status/Daily Reports/Consolidated Files",
-    "sheet_name": "Accounts"
+    "sheet_name": "Accounts",
+    "module": "claim_status"
   },
-  {
-    "name": "Clinical Appeals",
+  "Clinical Appeals": {
+    "location": "Share Drive",
     "daily_path": "M:/CPP-Data/CBO Westbury Managers/LEADERSHIP/Bot Folder/Part A/Clinical Appeals/Daily Reports/",
     "consolidation_path": "M:/CPP-Data/CBO Westbury Managers/LEADERSHIP/Bot Folder/Part A/Clinical Appeals/Daily Reports/Consolidated Files",
-    "sheet_name": "Detailed Report"
+    "sheet_name": "Detailed Report",
+    "module": "clinical_appeals"
   },
-  {
-    "name": "Clinical Denials",
+  "Clinical Denials": {
+    "location": "Share Drive",
     "daily_path": "M:/CPP-Data/CBO Westbury Managers/LEADERSHIP/Bot Folder/Part A/Clinical Denials/Daily Reports/",
     "consolidation_path": "M:/CPP-Data/CBO Westbury Managers/LEADERSHIP/Bot Folder/Part A/Clinical Denials/Daily Reports/Consolidated Files",
-    "sheet_name": "Detailed Report"
+    "sheet_name": "Detailed Report",
+    "module": "clinical_denials"
   },
-  {
-    "name": "Insurance Verification",
+  "Insurance Verification": {
+    "location": "SharePoint",
     "daily_path": "/Part A - Hospital/Insurance Verification/Daily Reports/",
     "consolidation_path": "/Part A - Hospital/Insurance Verification/Daily Reports/Consolidated Files/",
-    "sheet_name":"Accounts"
+    "sheet_name": "Accounts",
+    "module": "insurance_verification"
   },
-  {
-    "name": "Lab",
+  "Lab": {
+    "location": "SharePoint",
     "daily_path": "/Part A - Hospital/Lab/Daily Reports/",
     "consolidation_path": "/Part A - Hospital/Lab/Daily Reports/Consolidated Files/",
-    "sheet_name": "Detailed Report"
+    "sheet_name": "Detailed Report",
+    "module": "lab"
   },
-  {
-    "name": "Mini-Reg",
+  "Mini-Reg": {
+    "location": "SharePoint",
     "daily_path": "/Part A - Hospital/Mini-Reg/Daily Reports/",
     "consolidation_path": "/Part A - Hospital/Mini-Reg/Daily Reports/Consolidated Files/",
-    "sheet_name": "Detailed Report"
+    "sheet_name": "Detailed Report",
+    "module": "minireg"
   },
-  {
-    "name": "Preregistration",
+  "Preregistration": {
+    "location": "SharePoint",
     "daily_path": "/Part A - Hospital/Preregistration/Daily Reports/",
-    "consolidation_path": "/Part A - Hospital/Preregistration/Daily Reports/Consolidated Files/"
+    "consolidation_path": "/Part A - Hospital/Preregistration/Daily Reports/Consolidated Files/",
+    "sheet_name": "Accounts",
+    "module": "prereg"
+  },
+  "STARs": {
+    "location": "SharePoint",
+    "daily_path": "/Part A - Hospital/STARs/Daily Reports/",
+    "consolidation_path": "/Part A - Hospital/STARs/Daily Reports/Consolidated Files",
+    "sheet_name": "Claims",
+    "module": ""
   }
-]
+}

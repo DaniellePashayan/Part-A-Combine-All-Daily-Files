@@ -3,16 +3,29 @@ import os
 from glob import glob
 import numpy as np
 import re
+import sys
+import functions as fx
 
-def combine_IV(month, year):
+def combine(use_case_data: dict, month: str, year: str):
+
+    if use_case_data["location"] == "SharePoint":
+        daily_path = f'{fx.SHAREPOINT_PATH}/{use_case_data["daily_path"]}'
+        consolidation_path = f'{fx.SHAREPOINT_PATH}/{use_case_data["consolidation_path"]}'
+    else:
+        daily_path = use_case_data["daily_path"]
+        consolidation_path = use_case_data["consolidation_path"]
+
+    sheet_name = use_case_data["sheet_name"]
+
+    month = month.zfill(2)
+    # BusinessFile_Transacti
+    
     in_scope = ['MAGNACARE NW', 'MEDICARE', 'MEDICAID', 'AARP', 'NW DIRECT']
-    username = os.getlogin()
-    folder_path = f'C:/Users/{username}/Northwell Health/CBO (1111 Marcus Ave M04) - Robotic Process Automation/Part A - Hospital/Insurance Verification/Daily Reports/'
 
-    def combine(month, year):
-        # filename structure = IV_Business Transaction Report - 2023-04-20 11-32-51 AM.xlsx
-        files = pd.concat([pd.read_excel(file, sheet_name='Accounts').assign(file_name=os.path.basename(
-            file)) for file in glob(f"{folder_path}*{year}-{month}*.xlsx") if "Consolidated Files" not in file])
+    def combine_files(month, year):
+        files = pd.concat([pd.read_excel(file, sheet_name=sheet_name).assign(file_name=os.path.basename(file)) for file in glob(
+            f"{daily_path}*{year}-{month}*.xlsx") if "Consolidated Files" not in file and "~" not in file])
+
         files.columns = files.columns.str.strip()  # remove leading and trailing spaces
         return files
 
@@ -87,8 +100,12 @@ def combine_IV(month, year):
             output_conditions, output_choices, default=np.nan)
         return df
 
-    df = combine(month, year)
+    df = combine_files(month, year)
     df = check_in_scope_has_response(df)
     df = format(df)
     df = classify_successes(df)
-    df.to_excel(f'{folder_path}/Consolidated Files/{year} {month} Combined.xlsx', index=False)
+    try:
+        df.to_excel(f'{consolidation_path}/{year} {month} Combined.xlsx', index=False)
+        print(f"Files combined for {year} {month}")
+    except ValueError as e:
+        print(f"No files for {year} {month}: {e}")
