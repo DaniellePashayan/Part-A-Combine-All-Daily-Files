@@ -8,7 +8,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'use_cases'))
 
 month = '06'
 year = '2023'
-use_case_name = 'CHHA Claim Status'
+use_case_name = 'STARs'
 
 def run_use_case(module_name, use_case_data, month, year):
     module = importlib.import_module(module_name)

@@ -1,0 +1,30 @@
+from glob import glob
+import pandas as pd
+import os
+import functions as fx
+
+def combine(use_case_data: dict, month: str, year: str):
+
+    if use_case_data["location"] == "SharePoint":
+        daily_path = f'{fx.SHAREPOINT_PATH}/{use_case_data["daily_path"]}'
+        consolidation_path = f'{fx.SHAREPOINT_PATH}/{use_case_data["consolidation_path"]}'
+    else:
+        daily_path = use_case_data["daily_path"]
+        consolidation_path = use_case_data["consolidation_path"]
+
+    sheet_name = use_case_data["sheet_name"]
+
+    month = month.zfill(2)
+    #STARS Auto Adjustment_Business Transaction Report - 2023-06-20 05-15-21 PM.xlsx
+    try:
+        files = pd.concat([pd.read_excel(file, sheet_name=sheet_name).assign(file_name=os.path.basename(file)) for file in glob(
+            f"{daily_path}*{year}-{month}*.xlsx") if "Consolidated Files" not in file and "~" not in file])
+
+        files.columns = files.columns.str.strip()  # remove leading and trailing spaces
+        if not os.path.exists(consolidation_path):
+            os.mkdir(consolidation_path)
+        files.to_excel(
+            f'{consolidation_path}/{year} {month} Combined.xlsx', index=False)
+        print(f"Files combined for {year} {month}")
+    except ValueError as e:
+        print(f"No files for {year} {month}: {e}")

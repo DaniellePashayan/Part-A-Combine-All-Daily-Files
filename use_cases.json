@@ -67,6 +67,6 @@
     "daily_path": "/Part A - Hospital/STARs/Daily Reports/",
     "consolidation_path": "/Part A - Hospital/STARs/Daily Reports/Consolidated Files",
     "sheet_name": "Claims",
-    "module": ""
+    "module": "stars"
   }
 }
