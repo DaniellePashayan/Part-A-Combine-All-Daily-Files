@@ -6,9 +6,9 @@ import sys
 # Add the 'use_cases' directory to the sys.path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'use_cases'))
 
-month = '06'
+month = '07'
 year = '2023'
-use_case_name = 'STARs'
+use_case_name = 'SCM'
 
 def run_use_case(module_name, use_case_data, month, year):
     module = importlib.import_module(module_name)

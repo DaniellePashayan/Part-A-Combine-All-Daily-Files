@@ -5,7 +5,6 @@ import functions as fx
 from tqdm import tqdm
 
 def combine(use_case_data: dict, month: str, year: str):
-
     if use_case_data["location"] == "SharePoint":
         daily_path = f'{fx.SHAREPOINT_PATH}/{use_case_data["daily_path"]}'
         consolidation_path = f'{fx.SHAREPOINT_PATH}/{use_case_data["consolidation_path"]}'
@@ -16,7 +15,7 @@ def combine(use_case_data: dict, month: str, year: str):
     sheet_name = use_case_data["sheet_name"]
 
     month = month.zfill(2)
-    # BusinessFile_Transaction Report - 2023-06-02 08-20-29 PM.xlsx
+    #STARS Auto Adjustment_Business Transaction Report - 2023-06-20 05-15-21 PM.xlsx
     try:
         files = pd.concat([pd.read_excel(file, sheet_name=sheet_name).assign(file_name=os.path.basename(file)) for file in tqdm(glob(
             f"{daily_path}*{year}-{month}*.xlsx")) if "Consolidated Files" not in file and "~" not in file])

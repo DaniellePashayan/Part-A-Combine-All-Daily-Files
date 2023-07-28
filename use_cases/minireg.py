@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from glob import glob
 import functions as fx
+from tqdm import tqdm
 
 def combine(use_case_data: dict, month: str, year: str):
 
@@ -17,8 +18,8 @@ def combine(use_case_data: dict, month: str, year: str):
     month = month.zfill(2)
     # BusinessFile_Transaction Report - 2023-06-02 08-20-29 PM.xlsx
     try:
-        files = pd.concat([pd.read_excel(file, sheet_name=sheet_name).assign(file_name=os.path.basename(file)) for file in glob(
-            f"{daily_path}*{year}-{month}*.xlsx") if "Consolidated Files" not in file and "~" not in file])
+        files = pd.concat([pd.read_excel(file, sheet_name=sheet_name).assign(file_name=os.path.basename(file)) for file in tqdm(glob(
+            f"{daily_path}*{year}-{month}*.xlsx")) if "Consolidated Files" not in file and "~" not in file])
 
         files.columns = files.columns.str.strip()  # remove leading and trailing spaces
         if not os.path.exists(consolidation_path):

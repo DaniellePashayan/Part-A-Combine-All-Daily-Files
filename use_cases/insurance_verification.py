@@ -5,6 +5,7 @@ import numpy as np
 import re
 import sys
 import functions as fx
+from tqdm import tqdm
 
 def combine(use_case_data: dict, month: str, year: str):
 
@@ -23,8 +24,8 @@ def combine(use_case_data: dict, month: str, year: str):
     in_scope = ['MAGNACARE NW', 'MEDICARE', 'MEDICAID', 'AARP', 'NW DIRECT']
 
     def combine_files(month, year):
-        files = pd.concat([pd.read_excel(file, sheet_name=sheet_name).assign(file_name=os.path.basename(file)) for file in glob(
-            f"{daily_path}*{year}-{month}*.xlsx") if "Consolidated Files" not in file and "~" not in file])
+        files = pd.concat([pd.read_excel(file, sheet_name=sheet_name).assign(file_name=os.path.basename(file)) for file in tqdm(glob(
+            f"{daily_path}*{year}-{month}*.xlsx")) if "Consolidated Files" not in file and "~" not in file])
 
         files.columns = files.columns.str.strip()  # remove leading and trailing spaces
         return files
@@ -106,6 +107,5 @@ def combine(use_case_data: dict, month: str, year: str):
     df = classify_successes(df)
     try:
         df.to_excel(f'{consolidation_path}/{year} {month} Combined.xlsx', index=False)
-        print(f"Files combined for {year} {month}")
     except ValueError as e:
         print(f"No files for {year} {month}: {e}")

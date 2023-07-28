@@ -68,5 +68,12 @@
     "consolidation_path": "/Part A - Hospital/STARs/Daily Reports/Consolidated Files",
     "sheet_name": "Claims",
     "module": "stars"
+  },
+  "SCM": {
+    "location": "SharePoint",
+    "daily_path": "/Part A - Hospital/SCM Chart Retrieval/Daily Reports/",
+    "consolidation_path": "/Part A - Hospital/SCM Chart Retrieval/Daily Reports/Consolidated Files/",
+    "sheet_name": "Detailed Report",
+    "module": "scm"
   }
 }
