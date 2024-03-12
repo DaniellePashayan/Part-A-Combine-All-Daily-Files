@@ -25,7 +25,7 @@ def combine(use_case_data: dict, month: str, year: str):
         if not os.path.exists(consolidation_path):
             os.mkdir(consolidation_path)
         files.to_excel(
-            f'{consolidation_path}/{year} {month} Combined.xlsx', index=False)
+            f'{consolidation_path}/{year} {month} FSR Combined.xlsx', index=False)
     except ValueError as e:
         print(f"No files for {year} {month}: {e}")
     

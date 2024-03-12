@@ -6,9 +6,9 @@ import sys
 # Add the 'use_cases' directory to the sys.path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'use_cases'))
 
-month = '01'
+month = '02'
 year = '2024'
-use_case_name = 'Mini-Reg'
+use_case_name = 'Census PCx'
 
 
 def run_use_case(module_name, use_case_data, month, year):

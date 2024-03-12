@@ -82,5 +82,12 @@
     "consolidation_path": "/Part A - Hospital/Census Reporting/Daily Reports/Consolidated Files/",
     "sheet_name": "FaceSheet Report",
     "module": "census_fsr"
+  },
+  "Census PCx": {
+    "location": "SharePoint",
+    "daily_path": "/Part A - Hospital/Census Reporting/Daily Reports",
+    "consolidation_path": "/Part A - Hospital/Census Reporting/Daily Reports/Consolidated Files/",
+    "sheet_name": ["CBO PCx Report", "DPU PCx Report"],
+    "module": "census_pcx"
   }
 }
