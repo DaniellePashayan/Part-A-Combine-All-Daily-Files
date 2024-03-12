@@ -75,5 +75,12 @@
     "consolidation_path": "/Part A - Hospital/SCM Chart Retrieval/Daily Reports/Consolidated Files/",
     "sheet_name": "Detailed Report",
     "module": "scm"
+  },
+  "Census FSR": {
+    "location": "SharePoint",
+    "daily_path": "/Part A - Hospital/Census Reporting/Daily Reports",
+    "consolidation_path": "/Part A - Hospital/Census Reporting/Daily Reports/Consolidated Files/",
+    "sheet_name": "FaceSheet Report",
+    "module": "census_fsr"
   }
 }
