@@ -11,10 +11,18 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'use_cases'))
 month = str(dt.now().strftime('%m')).zfill(2)
 year = str(dt.now().strftime('%Y'))
 
+logger.add('./logs/log.log',
+           rotation='1 week', 
+           retention='10 days', 
+           level='INFO', 
+           compression='zip')
+
 def run_use_case(module_name, use_case_data, month, year):
+    logger.info(f"Running {module_name} with data {use_case_data}")
     module = importlib.import_module(module_name)
     # Run the desired functionality for the module using use_case_data
     module.combine(use_case_data, month, year)
+    logger.success(f"Finished running {module_name}")
 
 if __name__ == '__main__':
     # Read the JSON file
