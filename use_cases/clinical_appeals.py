@@ -29,4 +29,3 @@ def combine(use_case_data: dict, month: str, year: str):
             f'{consolidation_path}/{year} {month} Combined.xlsx', index=False)
     except ValueError as e:
         print(f"No files for {year} {month}: {e}")
-    return files
